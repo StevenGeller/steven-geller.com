@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>steven geller | bitcoin engineering</title>
+    <meta name="description" content="steven geller - head of bitcoin engineering at block, focused on bitcoin protocol, lightning network, and self-custody solutions">
+    
+    <!-- favicon and app icons -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- open graph / social media meta tags -->
+    <meta property="og:title" content="steven geller | bitcoin engineering">
+    <meta property="og:description" content="head of bitcoin engineering at block, focused on bitcoin protocol, lightning network, and self-custody solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.steven-geller.com">
+    <meta property="og:image" content="https://www.steven-geller.com/images/og-image.jpg">
+    
+    <!-- twitter card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@steven_geller">
+    <meta name="twitter:title" content="steven geller | bitcoin engineering">
+    <meta name="twitter:description" content="head of bitcoin engineering at block, focused on bitcoin protocol, lightning network, and self-custody solutions">
+    <meta name="twitter:image" content="https://www.steven-geller.com/images/og-image.jpg">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- font awesome - load async -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- google fonts - load async -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+</head>
+<body>
+    <!-- loading overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>loading...</p>
+    </div>
+
+    <!-- main navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6L26 26M6 26L26 6" stroke="url(#paint0_linear)" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="14" stroke="url(#paint1_linear)" stroke-width="3"/>
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF9900"/>
+                                <stop offset="1" stop-color="#0066FF"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF9900"/>
+                                <stop offset="1" stop-color="#0066FF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>sg</span>
+                </a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about" class="nav-link">about</a></li>
+                    <li><a href="#bitcoin" class="nav-link">bitcoin</a></li>
+                    <li><a href="#thoughts" class="nav-link">thoughts</a></li>
+                    <li><a href="#projects" class="nav-link">projects</a></li>
+                    <li><a href="#contact" class="nav-link">connect</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="steven geller">steven geller</h1>
+                <div class="hero-subtitle">
+                    <span class="typed-text" id="typed-text">head of bitcoin engineering at block.</span><span class="cursor">&nbsp;</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="#about" class="btn btn-primary">learn more</a>
+                    <a href="#contact" class="btn btn-secondary">get in touch</a>
+                </div>
+            </div>
+            <div class="hero-bg">
+                <div id="particles" class="static-particles"></div>
+                <div class="code-snippet">
+                    <pre><code>
+const builder = {
+  name: "steven geller",
+  focus: ["bitcoin", "lightning", "freedom"],
+  build() {
+    return this.focus.map(area => 
+      createSolution(area)
+    );
+  }
+};
+
+builder.build();
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>about me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">head of bitcoin engineering at block, driving bitcoin as the open money protocol.</p>
+                    <p>with expertise in bitcoin protocol, lightning network infrastructure, and self-custody solutions, i build tools and systems that enhance freedom and sovereignty. my work spans from core bitcoin infrastructure to decentralized applications and privacy-enhancing technologies.</p>
+                    <p>i believe in open-source software and permissionless innovation to create a more equitable digital future.</p>
+                    <div class="tech-stack">
+                        <h3>tech stack</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">bitcoin protocol</span>
+                            <span class="tech-tag">lightning network</span>
+                            <span class="tech-tag">self-custody</span>
+                            <span class="tech-tag">cryptography</span>
+                            <span class="tech-tag">distributed systems</span>
+                            <span class="tech-tag">rust</span>
+                            <span class="tech-tag">c++</span>
+                            <span class="tech-tag">go</span>
+                            <span class="tech-tag">node.js</span>
+                            <span class="tech-tag">nostr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-button close"></span>
+                            <span class="terminal-button minimize"></span>
+                            <span class="terminal-button maximize"></span>
+                            <span class="terminal-title">steven-geller ~ whoami</span>
+                        </div>
+                        <div class="terminal-body" id="terminal-body">
+                            <div class="line" style="opacity:1;display:block;">$ whoami</div>
+                            <div class="line" style="opacity:1;display:block;">steven-geller</div>
+                            <div class="line" style="opacity:1;display:block;">$ cat profile.json</div>
+                            <div class="line" style="opacity:1;display:block;">
+<pre>{
+  "name": "steven geller",
+  "role": "head of bitcoin engineering at block",
+  "focus": [
+    "bitcoin protocol development",
+    "lightning network infrastructure",
+    "self-custody solutions",
+    "open source contribution",
+    "decentralized systems"
+  ],
+  "mission": "accelerate bitcoin as the open money protocol"
+}</pre>
+                            </div>
+                            <div class="line" style="opacity:1;display:block;">$ _</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- bitcoin section -->
+    <section class="bitcoin section-padding" id="bitcoin">
+        <div class="container">
+            <div class="section-header">
+                <h2>bitcoin engineering</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="bitcoin-content">
+                <div class="bitcoin-grid">
+                    <div class="bitcoin-card">
+                        <div class="bitcoin-header">
+                            <h3>lightning network</h3>
+                        </div>
+                        <div class="bitcoin-body">
+                            <p>leading one of the largest lightning network nodes in the ecosystem, spearheading development and integration of lightning infrastructure across block's platforms.</p>
+                            <p>focused on improving reliability, scalability, and user experience through protocol-level innovations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bitcoin-card">
+                        <div class="bitcoin-header">
+                            <h3>self-custody</h3>
+                        </div>
+                        <div class="bitcoin-body">
+                            <p>developing bitkey and other self-custody solutions that bridge personal sovereignty with institutional-grade security.</p>
+                            <p>building tools that make bitcoin custody accessible while maintaining security best practices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bitcoin-card">
+                        <div class="bitcoin-header">
+                            <h3>protocol development</h3>
+                        </div>
+                        <div class="bitcoin-body">
+                            <p>contributing to bitcoin core development and protocol improvements that enhance security, privacy, and scalability.</p>
+                            <p>researching and implementing solutions for on-chain scaling and transaction efficiency.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bitcoin-card">
+                        <div class="bitcoin-header">
+                            <h3>open source</h3>
+                        </div>
+                        <div class="bitcoin-body">
+                            <p>committed to open source development and community contribution. maintaining multiple bitcoin-related projects and libraries.</p>
+                            <p>fostering collaboration between developers to strengthen the bitcoin ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- thoughts section (nostr feed) -->
+    <section class="thoughts section-padding" id="thoughts">
+        <div class="container">
+            <div class="section-header">
+                <h2>thoughts</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="thoughts-content">
+                <div id="nostr-posts" class="nostr-posts">
+                    <!-- static fallback content -->
+                    <div class="post">
+                        <div class="post-content">
+                            working on lightning network improvements to enhance scalability and reliability across block's platforms.
+                        </div>
+                        <div class="post-date">today</div>
+                    </div>
+                    <div class="post">
+                        <div class="post-content">
+                            just published a bitcoin protocol update. check out the repo: <a href="https://github.com/StevenGeller/bitcoin" target="_blank" rel="noopener">https://github.com/StevenGeller/bitcoin</a>
+                        </div>
+                        <div class="post-date">3 days ago</div>
+                    </div>
+                    <div class="post">
+                        <div class="post-content">
+                            self-custody is non-negotiable. your keys, your bitcoin.
+                        </div>
+                        <div class="post-date">5 days ago</div>
+                    </div>
+                </div>
+                <div class="nostr-info">
+                    <p>follow me on <a href="nostr:npub17q66c7yr5thrc9vscy2u2m7t50chjvvdwtkwp6qap6035ftv46xqmg3few" target="_blank" rel="noopener" class="nostr-link">nostr <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- projects section (github activity) -->
+    <section class="projects section-padding" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>projects & activity</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-content">
+                <div class="projects-grid">
+                    <div class="project-card featured">
+                        <div class="project-header">
+                            <h3>github activity</h3>
+                        </div>
+                        <div class="project-body">
+                            <div id="github-activity" class="github-activity">
+                                <!-- static github activity -->
+                                <div class="github-activity-graph">
+                                    <div class="activity-summary">
+                                        <div class="activity-period">
+                                            <div class="activity-count">42</div>
+                                            <div class="activity-label">last 30 days</div>
+                                        </div>
+                                        <div class="activity-period">
+                                            <div class="activity-count">87</div>
+                                            <div class="activity-label">last 60 days</div>
+                                        </div>
+                                        <div class="activity-period">
+                                            <div class="activity-count">124</div>
+                                            <div class="activity-label">last 90 days</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="github-item">
+                                    <div><span class="github-type" data-type="push">push</span> pushed to StevenGeller/nostr-commerce-framework: updated payment flow integration</div>
+                                    <div class="github-date">today</div>
+                                </div>
+                                <div class="github-item">
+                                    <div><span class="github-type" data-type="pr">pr</span> opened pull request in StevenGeller/bitcoin: fix memory leak in wallet handling</div>
+                                    <div class="github-date">2 days ago</div>
+                                </div>
+                                <div class="github-item">
+                                    <div><span class="github-type" data-type="create">create</span> created repository StevenGeller/bitcoin-inscription-scanner</div>
+                                    <div class="github-date">5 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- featured projects - using actual repos -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>bitcoin fork</h3>
+                            <div class="project-tags">
+                                <span class="project-tag">bitcoin</span>
+                                <span class="project-tag">c++</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">bitcoin core integration/staging tree fork with contributions to wallet functionality and protocol improvements.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/StevenGeller/bitcoin" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> repository</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>bitcoin inscription scanner</h3>
+                            <div class="project-tags">
+                                <span class="project-tag">bitcoin</span>
+                                <span class="project-tag">rust</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">tool for analyzing and indexing bitcoin inscriptions with focus on performance and security.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/StevenGeller/bitcoin-inscription-scanner" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> repository</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>nostr commerce framework</h3>
+                            <div class="project-tags">
+                                <span class="project-tag">nostr</span>
+                                <span class="project-tag">javascript</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">a framework for building decentralized commerce applications on the nostr protocol with lightning integration.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/StevenGeller/nostr-commerce-framework" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> repository</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>connect</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <p class="lead">interested in collaborating on bitcoin projects?</p>
+                    <p>i'm always open to connecting with fellow builders, developers, and bitcoin enthusiasts. feel free to reach out through any of the platforms below.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/steven-geller" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin</span>
+                    </a>
+                    <a href="https://x.com/steven_geller" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-x-twitter"></i>
+                        <span>x</span>
+                    </a>
+                    <a href="https://github.com/stevengeller" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>github</span>
+                    </a>
+                    <a href="nostr:npub17q66c7yr5thrc9vscy2u2m7t50chjvvdwtkwp6qap6035ftv46xqmg3few" target="_blank" rel="noopener" class="social-link">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>nostr</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6L26 26M6 26L26 6" stroke="url(#paint0_linear)" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="14" stroke="url(#paint1_linear)" stroke-width="3"/>
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF9900"/>
+                                <stop offset="1" stop-color="#0066FF"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF9900"/>
+                                <stop offset="1" stop-color="#0066FF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>steven geller</span>
+                </div>
+                <div class="footer-tagline">
+                    <p>software. bitcoin. freedom.</p>
+                </div>
+                <div class="footer-note">
+                    <p>no permission required. run your own node.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JS for basic interactivity -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hide loading overlay
+        setTimeout(function() {
+            document.getElementById('loading-overlay').classList.add('hidden');
+        }, 300);
+        
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile nav if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Highlight active section on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Add scrolled class to nav
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            // Find current section
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // Highlight current nav item
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    });
+    </script>
+    
+    <!-- Deferred loading of enhanced features -->
+    <script>
+    // Load enhanced features after page load
+    window.addEventListener('load', function() {
+        // Load dynamic content if needed
+        if ('fetch' in window) {
+            // Function to load dynamic content can be added here
+            // This is intentionally left empty to improve initial load time
+        }
+    });
+    </script>
+    
+    <!-- Particles.js for background animation -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
