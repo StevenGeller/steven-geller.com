@@ -1,0 +1,184 @@
+/* Theme Variables */
+
+/* Dark Mode (Default) */
+:root {
+  /* Color Palette */
+  --bg-color: #0c0c0e;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a24;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --accent-primary: #ff9900;
+  --accent-secondary: #0066ff;
+  --card-bg: #1a1a24;
+  --border-color: #2a2a3a;
+  --success-color: #00cc66;
+  --error-color: #ff3333;
+  
+  /* Other Variables */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --glass-bg: rgba(26, 26, 36, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  
+  /* Transition for theme switching */
+  --theme-transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  /* Color Palette */
+  --bg-color: #f8f9fa;
+  --bg-secondary: #edf0f2;
+  --bg-tertiary: #e2e6ea;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --accent-primary: #ff9900;
+  --accent-secondary: #0066ff;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  
+  /* Other Variables */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+}
+
+/* Apply transitions to elements that change with theme */
+body,
+.main-nav,
+.bitcoin-card,
+.project-card,
+.post,
+.terminal,
+.social-link,
+.tech-tag,
+.project-tag,
+.code-snippet,
+.section-line,
+.footer {
+  transition: var(--theme-transition);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  transition: transform 0.5s;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(30deg);
+}
+
+/* Glassmorphism updates for light/dark modes */
+.glassmorphism {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+/* Remove all text shadows/glows */
+.neon-text, 
+h1, h2, .btn-primary, 
+.section-line,
+.neon-border {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Update card styles for modern look */
+.bitcoin-card,
+.project-card,
+.post,
+.terminal,
+.social-link {
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  background-color: var(--card-bg);
+}
+
+/* Light mode specific adjustments */
+[data-theme="light"] .tech-tag,
+[data-theme="light"] .project-tag {
+  background-color: var(--bg-tertiary);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .terminal-header {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="light"] .code-snippet {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-left: 3px solid var(--accent-primary);
+}
+
+[data-theme="light"] .terminal-body {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .terminal pre {
+  color: var(--accent-primary);
+}
+
+/* Modern scrollbar for both themes */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+/* Animation for theme toggle */
+@keyframes theme-switch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.theme-toggle.animate {
+  animation: theme-switch 0.5s ease;
+}
