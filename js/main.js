@@ -597,26 +597,24 @@ function createGitHubSummary(activities) {
     ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
     
     // Initialize counters for each time period
-    const activityCounts = {
-        '30d': 0,
-        '60d': 0,
-        '90d': 0
-    };
+    let thirtyDayCount = 0;
+    let sixtyDayCount = 0;
+    let ninetyDayCount = 0;
     
     // Count activities for each period
     for (const activity of activities) {
         const activityDate = new Date(activity.created_at);
         
         if (activityDate >= thirtyDaysAgo) {
-            activityCounts['30d']++;
+            thirtyDayCount++;
         }
         
         if (activityDate >= sixtyDaysAgo) {
-            activityCounts['60d']++;
+            sixtyDayCount++;
         }
         
         if (activityDate >= ninetyDaysAgo) {
-            activityCounts['90d']++;
+            ninetyDayCount++;
         }
     }
     
@@ -629,9 +627,9 @@ function createGitHubSummary(activities) {
     
     // Create period elements for each timeframe - lowercase labels
     const periods = [
-        { key: '30d', label: 'last 30 days' },
-        { key: '60d', label: 'last 60 days' },
-        { key: '90d', label: 'last 90 days' }
+        { count: thirtyDayCount, label: 'last 30 days' },
+        { count: sixtyDayCount, label: 'last 60 days' },
+        { count: ninetyDayCount, label: 'last 90 days' }
     ];
     
     for (const period of periods) {
@@ -640,7 +638,7 @@ function createGitHubSummary(activities) {
         
         const countElement = document.createElement('div');
         countElement.className = 'activity-count';
-        countElement.textContent = activityCounts[period.key];
+        countElement.textContent = period.count;
         
         const labelElement = document.createElement('div');
         labelElement.className = 'activity-label';
