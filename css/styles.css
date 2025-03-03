@@ -398,7 +398,8 @@ code, pre {
     position: absolute;
     right: 5%;
     bottom: 15%;
-    max-width: 380px;
+    max-width: 450px;
+    width: 450px;
     background-color: var(--bg-tertiary);
     border-radius: var(--border-radius-md);
     padding: var(--space-lg);
