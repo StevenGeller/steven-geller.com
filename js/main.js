@@ -334,7 +334,7 @@ async function fetchNostrPosts() {
         return [
             {
                 id: 'static-note-1',
-                content: 'working on lightning network improvements to enhance scalability and reliability across block's platforms.',
+                content: 'working on lightning network improvements to enhance scalability and reliability across block\'s platforms.',
                 created_at: oneDayAgo
             },
             {
