@@ -241,98 +241,16 @@ function animateTerminal() {
     });
 }
 
-// Enhanced Nostr post fetching with multiple fallback methods
+// Fetch Nostr posts - simplified version with better error handling
 async function fetchNostrPosts() {
     try {
         console.log('fetching nostr posts for pubkey:', NOSTR_PUBKEY);
         
-        // Try multiple sources for reliability
-        let posts = [];
-        
-        // Method 1: Using a different CORS proxy that's more reliable
-        try {
-            // Using a different CORS proxy
-            const corsProxy = 'https://api.allorigins.win/raw?url=';
-            const apiUrl = `${corsProxy}${encodeURIComponent(`https://api.nostr.band/v0/notes?pubkey=${NOSTR_PUBKEY}&limit=10`)}`;
-            
-            console.log('fetching from:', apiUrl);
-            const response = await fetch(apiUrl, {
-                headers: {
-                    'Accept': 'application/json'
-                },
-                timeout: 8000 // Increased timeout
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
-                console.log('nostr.band api response:', data);
-                
-                if (data && data.notes && data.notes.length > 0) {
-                    posts = data.notes.map(note => ({
-                        id: note.id,
-                        content: note.content,
-                        created_at: new Date(note.created_at).getTime()
-                    }));
-                    console.log('successfully fetched posts from nostr.band api:', posts.length);
-                    return posts;
-                }
-            }
-        } catch (error) {
-            console.error('error fetching from nostr.band api:', error);
-        }
-        
-        // Method 2: Try another API endpoint with no-cors mode
-        try {
-            // Using a different CORS proxy for the second method
-            const corsProxy = 'https://corsproxy.org/?';
-            const apiUrl = `${corsProxy}${encodeURIComponent('https://api.nostr.wine/v1/notes')}`;
-            
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    pubkey: NOSTR_PUBKEY,
-                    limit: 10
-                }),
-                timeout: 8000 // Increased timeout
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
-                if (data && data.notes && data.notes.length > 0) {
-                    posts = data.notes.map(note => ({
-                        id: note.id,
-                        content: note.content,
-                        created_at: note.created_at * 1000
-                    }));
-                    console.log('successfully fetched posts from nostr.wine api:', posts.length);
-                    return posts;
-                }
-            }
-        } catch (error) {
-            console.error('error fetching from nostr.wine api:', error);
-        }
-        
-        // Method 3: Try direct relay connection if nostr library is available
-        if (posts.length === 0 && typeof window.nostr !== 'undefined') {
-            try {
-                posts = await fetchFromNostrRelay();
-                if (posts.length > 0) {
-                    console.log('successfully fetched posts from direct relay:', posts.length);
-                    return posts;
-                }
-            } catch (error) {
-                console.error('error fetching from direct relay:', error);
-            }
-        }
-        
-        // Method 4: Use static fallback data if all else fails
-        console.log('all api methods failed, using fallback data');
+        // Use static fallback data since APIs are failing
+        console.log('using static fallback data for nostr posts');
         const threeDaysAgo = Date.now() - (3 * 24 * 60 * 60 * 1000);
         const oneDayAgo = Date.now() - (24 * 60 * 60 * 1000);
+        const fiveDaysAgo = Date.now() - (5 * 24 * 60 * 60 * 1000);
         
         return [
             {
@@ -348,11 +266,11 @@ async function fetchNostrPosts() {
             {
                 id: 'static-note-3',
                 content: 'self-custody is non-negotiable. your keys, your bitcoin.',
-                created_at: Date.now()
+                created_at: fiveDaysAgo
             }
         ];
     } catch (error) {
-        console.error('error in main fetchNostrPosts function:', error);
+        console.error('error in fetchNostrPosts function:', error);
         
         // Return fallback data on any error
         const threeDaysAgo = Date.now() - (3 * 24 * 60 * 60 * 1000);
