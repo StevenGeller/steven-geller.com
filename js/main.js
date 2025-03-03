@@ -1,6 +1,19 @@
 // Constants
-const NOSTR_PUBKEY = '71df01920d67087f38d3f6c337762ddcfcf7db8c86eb2f74e181fea1f1f9cbe6'; // Hex of npub17q66c7yr5thrc9vscy2u2m7t50chjvvdwtkwp6qap6035ftv46xqmg3few
 const NOSTR_NPUB = 'npub17q66c7yr5thrc9vscy2u2m7t50chjvvdwtkwp6qap6035ftv46xqmg3few';
+// Convert npub to hex pubkey if nostr library is available
+let NOSTR_PUBKEY = '71df01920d67087f38d3f6c337762ddcfcf7db8c86eb2f74e181fea1f1f9cbe6'; // Default fallback
+try {
+    if (window.nostr && window.nostr.nip19) {
+        const decoded = window.nostr.nip19.decode(NOSTR_NPUB);
+        if (decoded && decoded.data) {
+            NOSTR_PUBKEY = decoded.data;
+            console.log('Successfully decoded npub to hex pubkey:', NOSTR_PUBKEY);
+        }
+    }
+} catch (error) {
+    console.error('Error decoding npub:', error);
+    // Keep using the fallback pubkey
+}
 const GITHUB_USERNAME = 'stevengeller';
 const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/events/public`;
 const GITHUB_REPOS_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
@@ -241,13 +254,22 @@ function animateTerminal() {
     });
 }
 
-// Fetch Nostr posts - simplified version with better error handling
+// Fetch Nostr posts - using actual relay fetch instead of static fallback
 async function fetchNostrPosts() {
     try {
         console.log('fetching nostr posts for pubkey:', NOSTR_PUBKEY);
         
-        // Use static fallback data since APIs are failing
-        console.log('using static fallback data for nostr posts');
+        // Try to fetch from relays first
+        const relayPosts = await fetchFromNostrRelay();
+        
+        // If we got posts from relays, use them
+        if (relayPosts && relayPosts.length > 0) {
+            console.log(`successfully fetched ${relayPosts.length} posts from nostr relays`);
+            return relayPosts;
+        }
+        
+        // If relay fetch failed or returned no posts, use static data
+        console.log('relay fetch failed or returned no posts, using static fallback data');
         const threeDaysAgo = Date.now() - (3 * 24 * 60 * 60 * 1000);
         const oneDayAgo = Date.now() - (24 * 60 * 60 * 1000);
         const fiveDaysAgo = Date.now() - (5 * 24 * 60 * 60 * 1000);
