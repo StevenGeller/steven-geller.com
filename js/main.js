@@ -249,10 +249,10 @@ async function fetchNostrPosts() {
         // Try multiple sources for reliability
         let posts = [];
         
-        // Method 1: Try using a CORS-friendly API endpoint first
+        // Method 1: Using a different CORS proxy that's more reliable
         try {
-            // Using cors-anywhere proxy to avoid CORS issues
-            const corsProxy = 'https://corsproxy.io/?';
+            // Using a different CORS proxy
+            const corsProxy = 'https://api.allorigins.win/raw?url=';
             const apiUrl = `${corsProxy}${encodeURIComponent(`https://api.nostr.band/v0/notes?pubkey=${NOSTR_PUBKEY}&limit=10`)}`;
             
             console.log('fetching from:', apiUrl);
@@ -260,7 +260,7 @@ async function fetchNostrPosts() {
                 headers: {
                     'Accept': 'application/json'
                 },
-                timeout: 5000
+                timeout: 8000 // Increased timeout
             });
             
             if (response.ok) {
@@ -281,9 +281,12 @@ async function fetchNostrPosts() {
             console.error('error fetching from nostr.band api:', error);
         }
         
-        // Method 2: Try another API endpoint
+        // Method 2: Try another API endpoint with no-cors mode
         try {
-            const apiUrl = 'https://api.nostr.wine/v1/notes';
+            // Using a different CORS proxy for the second method
+            const corsProxy = 'https://corsproxy.org/?';
+            const apiUrl = `${corsProxy}${encodeURIComponent('https://api.nostr.wine/v1/notes')}`;
+            
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
@@ -294,7 +297,7 @@ async function fetchNostrPosts() {
                     pubkey: NOSTR_PUBKEY,
                     limit: 10
                 }),
-                timeout: 5000
+                timeout: 8000 // Increased timeout
             });
             
             if (response.ok) {
@@ -812,10 +815,12 @@ async function initialize() {
         ]);
         
         // Hide loading indicator
-        loadingIndicator.style.display = 'none';
+        if (loadingIndicator) {
+            loadingIndicator.style.display = 'none';
+        }
         
         // Render GitHub activity
-        if (activities && activities.length > 0) {
+        if (githubActivityElement && activities && activities.length > 0) {
             // Add summary first
             githubActivityElement.appendChild(createGitHubSummary(activities));
             
@@ -823,26 +828,32 @@ async function initialize() {
             for (const activity of activities.slice(0, 5)) {
                 githubActivityElement.appendChild(renderGithubActivity(activity));
             }
-        } else {
+        } else if (githubActivityElement) {
             githubActivityElement.innerHTML = '<div class="github-item">no recent activity found or unable to load github data</div>';
         }
         
         // Render Nostr posts
-        renderNostrPosts(posts);
+        if (nostrPostsElement) {
+            renderNostrPosts(posts);
+        }
         
         // Animate terminal after a delay
         setTimeout(animateTerminal, 1000);
         
         // Hide loading overlay
-        setTimeout(() => {
-            loadingOverlay.classList.add('hidden');
-        }, 500);
+        if (loadingOverlay) {
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+            }, 500);
+        }
         
     } catch (error) {
         console.error('error during initialization:', error);
         
         // Hide loading overlay even on error
-        loadingOverlay.classList.add('hidden');
+        if (loadingOverlay) {
+            loadingOverlay.classList.add('hidden');
+        }
         
         // Show error messages in the UI
         if (nostrPostsElement) {
