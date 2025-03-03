@@ -23,27 +23,25 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Neon glow effects */
+/* Neon glow effects - more subtle */
 .neon-text {
   color: #fff;
   text-shadow: 
-    0 0 5px rgba(255, 153, 0, 0.7),
-    0 0 10px rgba(255, 153, 0, 0.5),
-    0 0 20px rgba(255, 153, 0, 0.3);
+    0 0 3px rgba(255, 255, 255, 0.4),
+    0 0 5px rgba(255, 153, 0, 0.2);
 }
 
 .neon-border {
   box-shadow: 
-    0 0 5px rgba(255, 153, 0, 0.7),
-    0 0 10px rgba(255, 153, 0, 0.5),
-    0 0 20px rgba(255, 153, 0, 0.3);
+    0 0 3px rgba(255, 255, 255, 0.3),
+    0 0 5px rgba(255, 153, 0, 0.2);
 }
 
-/* Apply neon effects to headings and buttons */
+/* Apply neon effects to headings and buttons - more subtle */
 h1, h2, .btn-primary, .section-line {
   text-shadow: 
-    0 0 5px rgba(255, 153, 0, 0.7),
-    0 0 10px rgba(255, 153, 0, 0.5);
+    0 0 2px rgba(255, 255, 255, 0.3),
+    0 0 4px rgba(255, 153, 0, 0.2);
 }
 
 /* Gradient animations */

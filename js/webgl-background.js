@@ -46,10 +46,10 @@ function initWebGLBackground() {
 
   // Material with custom shader for glow effect
   const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.01,
-    color: 0xff9900,
+    size: 0.006,
+    color: 0x333333,
     transparent: true,
-    opacity: 0.8,
+    opacity: 0.4,
     blending: THREE.AdditiveBlending
   });
 
@@ -58,11 +58,11 @@ function initWebGLBackground() {
   scene.add(particlesMesh);
 
   // Add some ambient light
-  const ambientLight = new THREE.AmbientLight(0x404040);
+  const ambientLight = new THREE.AmbientLight(0x202020);
   scene.add(ambientLight);
 
   // Add a directional light
-  const directionalLight = new THREE.DirectionalLight(0xff9900, 0.5);
+  const directionalLight = new THREE.DirectionalLight(0x505050, 0.2);
   directionalLight.position.set(1, 1, 1);
   scene.add(directionalLight);
 
